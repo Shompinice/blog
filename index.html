@@ -93,6 +93,8 @@
         const list = document.getElementById('list');
         const content = document.getElementById('content');
         function isPc() {
+            alert(/Windows|Macintosh|Linux/i.test(navigator.userAgent))
+            alert(/Windows|Macintosh|Linux/i.test(window.innerWidth > 600))
             return /Windows|Macintosh|Linux/i.test(navigator.userAgent) && window.innerWidth > 600
         }
 
@@ -100,12 +102,14 @@
             //if(navigator.maxTouchPoints == 1 || window.innerWidth < 600){
             if (!isPc()) {
                 console.log("手机模式");
+                alert("手机模式")
                 document.querySelector(".mobile-head").style.display = 'block'
                 document.querySelector(".menu").style.display = 'none'
             } else {
                 document.querySelector(".mobile-head").style.display = 'none'
                 document.querySelector(".menu").style.display = 'flex'
                 console.log("电脑模式");
+                alert("电脑模式")
             }
         }
         ui()
