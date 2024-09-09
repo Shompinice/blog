@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="这里是文档的描述">
+    <meta name="keywords" content="关键词1, 关键词2, 关键词3">
+    <meta name="author" content="作者名">
+    <link rel="stylesheet" href="blog.css">
+    <title>Document</title>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/showdown"></script> -->
+    <script src="/showdown.js"></script>
+</head>
+<style>
+
+</style>
+
+<body>
+    <script>
+        function search() {
+            // 获取用户输入的搜索关键词
+            const searchQuery = document.querySelector('input[name="searchQuery"]').value;
+
+            // 在这里执行搜索操作，例如发起搜索请求或其他操作
+            console.log('Searching for: ' + searchQuery);
+        }
+    </script>
+
+    <div class="mobile-head">
+        <div class="mobile-head-tool">
+            <img style="width: 200px;" src="icon/home.png" />
+            <div id="m-tool-icon" class="icon icon10"></div>
+        </div>
+        <div class="mobile-menu">
+            <div id="line1" class="line">
+                <div id="m-home-icon" class="icon icon9"></div> Home
+            </div>
+            <div id="line2" class="line">
+                <div id="m-content-icon" class="icon icon1"></div>Blogs
+            </div>
+            <div id="line3" class="line">
+                <div id="m-info-icon" class="icon icon7"></div>Info
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="menu">
+            <div id="home-icon" class="icon icon9 activeMenu"></div>
+            <div id="content-icon" class="icon icon1"></div>
+            <div id="info-icon" class="icon icon7"></div>
+        </div>
+
+        <div class="page" id="homepage">
+            <img style="width: 300px;" src="icon/home.png" />
+        </div>
+
+        <div class="page" id="contentpage" style="display: flex;">
+            <div class="col" id="list"></div>
+            <div class="col" id="content">
+                <div class="" id="backLine"> </div>
+                <div class="" id="contentInner"> </div>
+            </div>
+        </div>
+
+        <div class="page" id="infopage">
+            <div>
+                <img style="width: 300px;" src="icon/home.png" />
+                <div style="margin-top: 50px;"> Email: Shompinice@gmail.com</div>
+                <div style="margin-bottom: 50px;"> Web: Shompinice.com </div>
+                <div class="line">
+                    <div id="link1" class="icon icon5"></div>
+                    <div id="link2" class="icon icon2 mx"></div>
+                    <div id="link3" class="icon icon4 mx"></div>
+                    <div id="link4" class="icon icon6"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            //location.reload()
+        }, 3000)
+        const catchMap = {}
+
+        const homepage = document.getElementById('homepage');
+        const contentpage = document.getElementById('contentpage');
+        const infopage = document.getElementById('infopage');
+        const list = document.getElementById('list');
+        const content = document.getElementById('content');
+        function isPc() {
+            return /Windows|Macintosh|Linux/i.test(navigator.userAgent)
+        }
+
+        function ui() {
+            //if(navigator.maxTouchPoints == 1 || window.innerWidth < 600){
+            if (!isPc()) {
+                console.log("手机模式");
+                document.querySelector(".mobile-head").style.display = 'block'
+                document.querySelector(".menu").style.display = 'none'
+            } else {
+                document.querySelector(".mobile-head").style.display = 'none'
+                document.querySelector(".menu").style.display = 'flex'
+                console.log("电脑模式");
+            }
+        }
+        ui()
+        // Fetch JSON data
+        fetch('/list.json') // 替换为实际的 JSON 文件路径
+            .then(response => response.json())
+            .then(data => {
+
+                // Render list items
+                data.forEach(item => {
+                    const div = document.createElement('div');
+                    const name = document.createElement('span');
+                    const desc = document.createElement('span');
+
+                    name.textContent = item.name;
+                    name.classList.add('name');
+
+                    desc.textContent = item.desc;
+                    desc.classList.add('desc');
+                    div.classList.add('mdItem');
+                    div.appendChild(name);
+                    div.appendChild(document.createElement('br')); // 换行
+                    div.appendChild(desc);
+                    div.addEventListener('click', () => {
+                        console.log(item.name);
+                        test(item);
+                        if (!isPc()) {
+                            list.style.display = 'none'
+                            content.style.display = 'block'
+                        }
+                    });
+
+                    list.appendChild(div);
+                });
+            })
+        function formatTimeAgo(timestamp) {
+            const now = new Date();
+            const date = new Date(timestamp);
+            const diff = now - date;
+            const seconds = Math.floor(diff / 1000);
+            const minutes = Math.floor(seconds / 60);
+            const hours = Math.floor(minutes / 60);
+            const days = Math.floor(hours / 24);
+
+            if (days > 30) {
+                return date.toISOString().substring(0, 10);
+            } else if (days > 0) {
+                return `${days} 天前`;
+            } else if (hours > 0) {
+                return `${hours} 小时前`;
+            } else {
+                return `${minutes} 分钟前`;
+            }
+        }
+        function test(item) {
+            console.log(item);
+            //console.log(formatTimeAgo(item.time))
+            var str = `
+                <div style="font-size:30px">${item.name} </div>
+                <br/>${formatTimeAgo(item.time)}
+            `
+            if (catchMap.path) {
+                contentInner.innerHTML = str + '<br/>' + catchMap.path;
+                return
+            }
+            /*
+            手机版本才有的逻辑
+            */
+            if (!isPc()) {
+                list.style.display = 'none'
+                backLine.style.display = 'block'
+            }
+            fetch('/blog/' + item.path || 'https://raw.githubusercontent.com/markdown-it/markdown-it/master/README.md')
+                .then(response => response.text())
+                .then(markdown => {
+                    // 将 Markdown 转换为 HTML
+                    const converter = new showdown.Converter();
+                    const html = converter.makeHtml(markdown);
+                    catchMap.path = html
+                    contentInner.innerHTML = str + '<br/>' + html;
+                })
+        }
+
+        function adjustUI() {
+            if (!isPc()) {
+                if (list.style.display == 'none' && content.style.display == 'block') {
+                    list.style.display ='block'
+                    content.style.display = 'none'
+                } 
+            }
+        } 
+        window.onpopstate = function (event) { 
+            adjustUI()
+            event.preventDefault(); // 阻止默认事件
+        };
+        window.addEventListener('popstate', function (event) {
+ 
+            adjustUI()
+            event.preventDefault(); 
+        });
+
+        window.onload = function () {
+            history.pushState(null, null, null); 
+            window.addEventListener('popstate', function (event) {  
+                event.preventDefault(); // 阻止事件的默认行为
+
+            });  
+        };
+
+
+
+
+        // var scriptElement = document.createElement('script');
+        // scriptElement.src = 'https://cdn.jsdelivr.net/npm/showdown'; // 替换为您要加载的 JavaScript 脚本的网络地址
+        // scriptElement.defer = true; // 延迟加载脚本 
+        // // 将 <script> 元素添加到 <head> 标签中
+        // document.head.appendChild(scriptElement);
+        function switchPage(id) {
+            const homepage = document.getElementById('homepage');
+            const contentpage = document.getElementById('contentpage');
+            const infopage = document.getElementById('infopage');
+            const map = {
+                'home-icon': homepage,
+                "content-icon": contentpage,
+                "info-icon": infopage,
+                'line1': homepage,
+                'line2': contentpage,
+                'line3': infopage,
+            }
+            homepage.style.display = 'none'
+            contentpage.style.display = 'none'
+            infopage.style.display = 'none'
+            map[id].style.display = 'flex'
+        }
+        switchPage('home-icon')
+        document.addEventListener('click', function (event) {
+            var id = event.target.id
+            console.log('Clicked element  ', event.target.id, event.target.classList);
+            if (/home-icon|content-icon|info-icon/.test(id)) switchPage(id)
+            // 手机端的逻辑
+            if (/m-tool-icon/.test(id)) {
+                var ele = document.getElementById(id).classList
+                var curClass = ele.contains("icon10") ? 'icon3' : 'icon10'
+                ele.remove("icon10");
+                ele.remove("icon3");
+                ele.add(curClass);
+                document.querySelector(".mobile-menu").style.display = curClass == 'icon10' ? 'none' : 'block'
+
+            }
+            if (/line1|line2|line3/.test(id)) {
+                document.querySelector(".mobile-menu").style.display = 'none'
+                switchPage(id)
+                document.querySelector("#m-tool-icon").click()
+                debugger
+                if('line2' == id){
+                    
+                    list.style.display ='block'
+                    content.style.display = 'none'
+                }
+            }
+            if (/link1|link2|link3|link4/.test(id)) {
+                var map = {
+                    "link1": "https://dribbble.com/Shomnipotence",
+                    "link2": "https://www.behance.net/Shompinice",
+                    "link3": "https://www.deviantart.com/shompinice/gallery",
+                    "link4": "https://github.com/Shomnipotence",
+                }
+                return window.open(map[id])
+            }
+            // activeMenu
+            if (/home-icon|content-icon|info-icon/.test(id)) {
+                document.getElementById("home-icon").classList.remove("activeMenu");
+                document.getElementById("content-icon").classList.remove("activeMenu");
+                document.getElementById("info-icon").classList.remove("activeMenu");
+                document.getElementById(id).classList.add("activeMenu")
+            }
+        });
+
+    </script><strong></strong>
+</body>
+
+</html>

@@ -1,0 +1,199 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+ul li {
+  list-style: none;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+.icon{
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    margin: 10px;
+    cursor: pointer;
+	 position: relative;
+	 background-position: center;
+}
+.icon:hover{
+    transform: scale(1.1);
+}
+.icon1{ background-image: url('./icon/AnvIconList.svg');}
+.icon2{ background-image: url('./icon/BehanceIcon.svg');}
+.icon3{ background-image: url('./icon/Close.svg');}
+.icon4{ background-image: url('./icon/DeviantartIcon.svg');}
+.icon5{ background-image: url('./icon/DribbbleIcon.svg');}
+.icon6{ background-image: url('./icon/GithubIcon.svg');}
+.icon7{ background-image: url('./icon/NavIconAbout.svg');}
+.icon8{ background-image: url('./icon/NavIconGbook.svg');}
+.icon9{ background-image: url('./icon/NavIconHome.svg');}
+.icon10{ background-image: url('./icon/Navigation.svg');}
+
+.menu{
+	height: 100vh;
+}
+.activeMenu::after{
+	 content: '';
+	    position: absolute;
+	     
+	        top: 7px;
+	        right: -10px;
+	        height: 70%;
+	      
+	    width: 2px; /* 线的宽度 */
+	    background-color: black; /* 线的颜色 */
+}
+
+bodyx {
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+/Edge */
+    user-select: none;
+    /* 标准语法 */
+}
+#list{
+    padding-right: 10px;
+}
+#content{
+    
+    overflow: auto;
+    height: 97vh;
+	flex: 1;
+	padding-left: 0.25rem;
+}
+body {
+    color: var(--color);
+    background: var(--background);
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.page {
+    animation: fadeInOut 1s forwards;
+	height: 100vh;
+	padding: 0.625rem;
+}
+#infopage,#homepage{
+	width: 100vw;
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: center;
+	    align-items: center;
+}
+
+.mx{
+	margin:  0 40px;
+}
+li {
+    cursor: pointer;
+    margin: 5px 0;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.desc {
+    font-size: 14px;
+}
+
+.main {
+    display: flex;
+}
+
+#list {
+    width: 300px;
+    height: 100vh;
+    overflow: auto;
+    padding-right: 10px;
+}
+#backLine{
+	display: none;
+}
+
+img{
+    max-width: 500px;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+.menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+	border-right: 2px solid #EEE;
+}
+.mdItem{
+	margin: 10px 0;
+	padding: 0.625rem;
+	border-radius: 0.625rem;
+	
+}
+.desc{
+	display: -webkit-box; /* 使用flexbox布局 */
+	    -webkit-line-clamp: 2; /* 限制显示的行数 */
+	    -webkit-box-orient: vertical; /* 设置为垂直方向排列 */
+	    overflow: hidden; /* 隐藏溢出部分的文本 */
+	    text-overflow: ellipsis; /* 显示省略号 */
+}
+.mdItem:hover{
+	background-color: #e1e1e1;
+}
+.line{
+    display: flex;
+    align-items: center;
+}
+#contentpage{
+	display: flex;
+	
+}
+
+
+.mobile-head-tool{
+	    display: flex;
+	    padding: 10px;
+		justify-content: space-between;
+        
+}
+.mobile-menu{
+        display: none;
+	    position: absolute;
+	    width: 100vw;
+		z-index: 999;
+		background-color: #FFF;
+}
+.mobile-menu .line{
+	border-bottom: 2px solid #e1e1e1;
+}
+/* 手机端媒体查询 */
+@media only screen and (max-width: 600px) {
+    .main {}
+
+    .page {
+        width: 100vw;
+    }
+    
+img{
+    max-width: 99vw;
+}
+
+    /* 添加其他手机端样式 */
+}
