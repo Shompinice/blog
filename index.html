@@ -176,7 +176,7 @@
                 list.style.display = 'none'
                 backLine.style.display = 'block'
             }
-            fetch('/blog/' + item.path || 'https://raw.githubusercontent.com/markdown-it/markdown-it/master/README.md')
+            fetch(  item.path)
                 .then(response => response.text())
                 .then(markdown => {
                     // 将 Markdown 转换为 HTML
