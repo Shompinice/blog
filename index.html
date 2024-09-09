@@ -8,7 +8,8 @@
     <meta name="keywords" content="关键词1, 关键词2, 关键词3">
     <meta name="author" content="作者名">
     <link rel="stylesheet" href="blog.css">
-    <title>Document</title>
+    <link rel="shortcut icon" href="/icon/head.png" type="image/x-icon">
+    <title>Shomnipotence</title>
     <!-- <script src="https://cdn.jsdelivr.net/npm/showdown"></script> -->
     <script src="/showdown.js"></script>
 </head>
@@ -56,7 +57,7 @@
             <img style="width: 300px;" src="icon/home.png" />
         </div>
 
-        <div class="page" id="contentpage" style="display: flex;">
+        <div class="page" id="contentpage" style="display: flex;padding-top: 40px;">
             <div class="col" id="list"></div>
             <div class="col" id="content">
                 <div class="" id="backLine"> </div>
@@ -91,7 +92,7 @@
         const list = document.getElementById('list');
         const content = document.getElementById('content');
         function isPc() {
-            return /Windows|Macintosh|Linux/i.test(navigator.userAgent)
+            return /Windows|Macintosh|Linux/i.test(navigator.userAgent) && window.innerWidth > 600
         }
 
         function ui() {
