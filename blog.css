@@ -103,6 +103,7 @@ bodyx {
     height: 97vh;
     flex: 1;
     padding-left: 200px;
+    line-height: 30px;
 }
 
 
@@ -194,7 +195,12 @@ img {
     border-radius: 0.625rem;
 
 }
-
+.mdItem .name{
+    line-height: 30px;
+}
+.mdItem .desc{
+    line-height: 20px;
+}
 .desc {
     display: -webkit-box;
     /* 使用flexbox布局 */
