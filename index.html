@@ -12,7 +12,7 @@
     <title>Shomnipotence</title>
     <!-- <script src="https://cdn.jsdelivr.net/npm/showdown"></script> -->
     <script src="/showdown.js"></script>
-    <script src="https://cdn.bootcss.com/vConsole/3.3.0/vconsole.min.js"></script>
+    <!-- <script src="https://cdn.bootcss.com/vConsole/3.3.0/vconsole.min.js"></script> -->
 </head>
 <style>
 
@@ -93,9 +93,8 @@
         const list = document.getElementById('list');
         const content = document.getElementById('content');
         function isPc() {
-            alert(/Windows|Macintosh|Linux/i.test(navigator.userAgent)) // true
-            alert(window.innerWidth > 600) // FLASE
-            return /Windows|Macintosh|Linux/i.test(navigator.userAgent) && (  window.innerWidth > 600 )
+             return !/Mobile/.test(navigator.userAgent)
+            //return /Windows|Macintosh|Linux/i.test(navigator.userAgent) && (  window.innerWidth > 600 )
         }
 
         function ui() {
@@ -287,7 +286,7 @@
                 document.getElementById(id).classList.add("activeMenu")
             }
         });
-        new VConsole();
+        VConsole &&  new VConsole();
 
     </script> 
 </body>
