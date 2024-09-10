@@ -224,9 +224,11 @@ img {
 
 
 .mobile-head-tool {
+    
     display: flex;
     padding: 10px;
     justify-content: space-between;
+    border-bottom: 1px solid #EEE;
 
 }
 
