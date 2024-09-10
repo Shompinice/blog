@@ -86,7 +86,7 @@
          解析参数 和 手动添加上参数
 
         */
-        
+
         setTimeout(() => {
             //location.reload()
         }, 3000)
@@ -98,28 +98,28 @@
         const list = document.getElementById('list');
         const content = document.getElementById('content');
         function isPc() {
-             return !/Mobile/.test(navigator.userAgent)
+            return !/Mobile/.test(navigator.userAgent)
             //return /Windows|Macintosh|Linux/i.test(navigator.userAgent) && (  window.innerWidth > 600 )
         }
 
-        function ui() { 
+        function ui() {
             if (isPc()) {
                 document.querySelector(".mobile-head").style.display = 'none'
-                document.querySelector(".menu").style.display = 'flex' 
-            } else { 
+                document.querySelector(".menu").style.display = 'flex'
+            } else {
                 document.querySelector(".mobile-head").style.display = 'block'
                 document.querySelector(".menu").style.display = 'none'
             }
         }
         ui()
-        
-            
+
+
         // Fetch JSON data
         fetch('/list.json') // 替换为实际的 JSON 文件路径
             .then(response => response.json())
             .then(data => {
                 var tmp = null
-                var curFile = location.hash.replace("#/",'')
+                var curFile = location.hash.replace("#/", '')
                 // Render list items
                 data.forEach(item => {
                     const div = document.createElement('div');
@@ -145,16 +145,16 @@
                     });
 
                     list.appendChild(div);
-                    if(item.path = curFile){
+                    if (item.path == curFile) {
                         tmp = item;
                         // 点击 blog 元素按钮
                         document.querySelector("#content-icon").click()
                     }
                 });
-                
-                 
-                if(curFile && tmp){
-                    /*文章页面*/  
+
+
+                if (curFile && tmp) {
+                    /*文章页面*/
                     test(tmp);
                 }
             })
@@ -178,19 +178,19 @@
             }
         }
         function test(item) {
-            console.log(item); 
+            console.log(item);
             history.pushState('', '', window.location.origin + '/#/' + item.path); // 不刷新页面
- 
 
+            if (catchMap[item.path]) {
+                contentInner.innerHTML =  catchMap[item.path];
+                return
+            }
             //console.log(formatTimeAgo(item.time))
             var str = `
                 <div style="font-size:30px;line-height:40px;font-weight:800">${item.name} </div>
                 <br/>${formatTimeAgo(item.time)}
             `
-            if (catchMap.path) {
-                //contentInner.innerHTML = str + '<br/>' + catchMap.path;
-                //return
-            }
+          
             /*
             手机版本才有的逻辑
             */
@@ -198,13 +198,15 @@
                 list.style.display = 'none'
                 backLine.style.display = 'block'
             }
-            fetch(  item.path)
+            fetch(item.path)
                 .then(response => response.text())
                 .then(markdown => {
+                    console.log("加载到的数据", markdown);
+
                     // 将 Markdown 转换为 HTML
                     const converter = new showdown.Converter();
                     const html = converter.makeHtml(markdown);
-                    catchMap.path =  str + '<br/>' + html
+                    catchMap[item.path] = str + '<br/>' + html
                     contentInner.innerHTML = str + '<br/>' + html;
                 })
         }
@@ -212,27 +214,27 @@
         function adjustUI() {
             if (!isPc()) {
                 if (list.style.display == 'none' && content.style.display == 'block') {
-                    list.style.display ='block'
+                    list.style.display = 'block'
                     content.style.display = 'none'
-                } 
+                }
             }
-        } 
-        window.onpopstate = function (event) { 
+        }
+        window.onpopstate = function (event) {
             adjustUI()
             event.preventDefault(); // 阻止默认事件
         };
         window.addEventListener('popstate', function (event) {
- 
+
             adjustUI()
-            event.preventDefault(); 
+            event.preventDefault();
         });
 
         window.onload = function () {
-            history.pushState(null, null, null); 
-            window.addEventListener('popstate', function (event) {  
+            history.pushState(null, null, null);
+            window.addEventListener('popstate', function (event) {
                 event.preventDefault(); // 阻止事件的默认行为
 
-            });  
+            });
         };
 
 
@@ -280,9 +282,9 @@
                 switchPage(id)
                 document.querySelector("#m-tool-icon").click()
                 debugger
-                if('line2' == id){
-                    
-                    list.style.display ='block'
+                if ('line2' == id) {
+
+                    list.style.display = 'block'
                     content.style.display = 'none'
                 }
             }
@@ -303,9 +305,9 @@
                 document.getElementById(id).classList.add("activeMenu")
             }
         });
-        VConsole &&  new VConsole();
+        VConsole && new VConsole();
 
-    </script> 
+    </script>
 </body>
 
 </html>
