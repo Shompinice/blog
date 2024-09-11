@@ -145,7 +145,8 @@
                     });
 
                     list.appendChild(div);
-                    if (item.path == curFile) {
+                    console.log("检查路径",curFile,item.path,item.path==curFile);
+                    if (item.path == decodeURIComponent(curFile)) {
                         tmp = item;
                         // 点击 blog 元素按钮
                         document.querySelector("#content-icon").click()
@@ -184,8 +185,7 @@
             if (catchMap[item.path]) {
                 contentInner.innerHTML =  catchMap[item.path];
                 return
-            }
-            //console.log(formatTimeAgo(item.time))
+            } 
             var str = `
                 <div style="font-size:30px;line-height:40px;font-weight:800">${item.name} </div>
                 <br/>${formatTimeAgo(item.time)}
@@ -200,10 +200,7 @@
             }
             fetch(item.path)
                 .then(response => response.text())
-                .then(markdown => {
-                    console.log("加载到的数据", markdown);
-
-                    // 将 Markdown 转换为 HTML
+                .then(markdown => {  
                     const converter = new showdown.Converter();
                     const html = converter.makeHtml(markdown);
                     catchMap[item.path] = str + '<br/>' + html
