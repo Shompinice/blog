@@ -21,7 +21,7 @@ ul li {
 }
 
 .icon:hover {
-    transform: scale(1.1);
+    transform: scale(1);
 }
 
 .icon1 {
@@ -73,10 +73,10 @@ ul li {
     position: absolute;
 
     top: 7px;
-    right: -10px;
+    right: -11px;
     height: 70%;
 
-    width: 2px;
+    width: 3px;
     /* 线的宽度 */
     background-color: black;
     /* 线的颜色 */
@@ -100,8 +100,9 @@ bodyx {
 #content {
 
     overflow: auto;
-    height: 97vh;
+    height: calc(100vh - 180px);
     flex: 1;
+    padding: 140px 0 40px 0;
     padding-left: 200px;
     line-height: 30px;
 }
@@ -128,8 +129,7 @@ body {
 
 .page {
     animation: fadeInOut 1s forwards;
-    height: 100vh;
-    padding: 0.625rem;
+    height: 100vh; 
 }
 
 #infopage,
@@ -165,7 +165,8 @@ li {
 
 #list {
     width: 300px;
-    height: 100vh;
+    height: calc(100vh - 80px);
+    padding: 40px 0 ;
     overflow: auto;
     padding-right: 10px;
 }
@@ -186,18 +187,18 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-right: 2px solid #EEE;
+    border-right: 1px solid #EEE;
 }
 
 .mdItem {
-    margin: 0 0 10px 0;
+    margin: 10px;
     padding: 0 0.625rem 0.625rem 0.625rem;
     border-radius: 0.625rem;
 
 }
 .mdItem .name{
     line-height: 40px;
-    font-size: 30px;
+    font-size: 16px;
 }
 .mdItem .desc{
     line-height: 20px;
@@ -260,12 +261,16 @@ img {
     }
 
     #content {
-        padding-left: 0.25rem;
+        word-break: break-all;
+        padding: 20px;
+        height: calc(100vh - 100px);
     }
 
     img {
-        max-width: 99vw;
+        max-width: calc(100vw - 40px);
     }
+    #content-black {
+        display: none;
+      }
 
-    /* 添加其他手机端样式 */
 }
