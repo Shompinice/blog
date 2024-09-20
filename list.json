@@ -6,26 +6,8 @@
     "path": "README.md"
   },
   {
-    "name": "README (3)",
-    "desc": "<p align=\"center\">\n    <img alt=\"Icon\" src=\"https://user-images.github",
-    "time": 1726827541203,
-    "path": "blog/README (3).md"
-  },
-  {
-    "name": "README (4)",
-    "desc": " ",
-    "time": 1726827541203,
-    "path": "blog/README (4).md"
-  },
-  {
-    "name": "README (5)",
-    "desc": "# ![inkball-git](https://user-images.githubusercontent.com/6630660/224",
-    "time": 1726827541203,
-    "path": "blog/README (5).md"
-  },
-  {
     "name": "重新设计 Crystal Disk Info",
-    "desc": "这里放 大约 70 字符号的 没有md 格式的文字摘要 \nCrystal Disk Info 是世界上最著名的磁盘健康监测工具之一。它是免费",
+    "desc": "Crystal Disk Info 是世界上最著名的磁盘健康监测工具之一。它是免费和开源的，并且仍在积极维护。它的仓库位于https://g",
     "time": 1726827541204,
     "path": "blog/重新设计 Crystal Disk Info.md"
   },
@@ -34,5 +16,23 @@
     "desc": "",
     "time": 1726827541205,
     "path": "dev.md"
+  },
+  {
+    "name": "FastCopy——XCopy 的 GUI 包装器设计",
+    "desc": "FastCopy——XCopy 的 GUI 包装器设计\n\n## 概述\nWindows 内置的 GUI 包装器 robocopy和xcopy.",
+    "time": 1726836682309,
+    "path": "blog/FastCopy——XCopy 的 GUI 包装器设计.md"
+  },
+  {
+    "name": "为 NanaZip 设计图标",
+    "desc": "## 概述 \n\nNanaZip 是一个开源文件归档器，旨在提供现代 Windows 体验，从著名的开源文件归档器 7-Zip 的源代码派生而",
+    "time": 1726836682309,
+    "path": "blog/为 NanaZip 设计图标.md"
+  },
+  {
+    "name": "重新设计墨球",
+    "desc": "## 概述\n\nInkBall（中文称作墨球） 是 Windows Vista 最佳非常流行的游戏之一，它被一些人视作三维弹球游戏的继任者。它",
+    "time": 1726836682309,
+    "path": "blog/重新设计墨球.md"
   }
 ]
