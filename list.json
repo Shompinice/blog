@@ -12,12 +12,6 @@
     "path": "blog/重新设计 Crystal Disk Info.md"
   },
   {
-    "name": "dev",
-    "desc": "",
-    "time": 1726827541205,
-    "path": "dev.md"
-  },
-  {
     "name": "FastCopy——XCopy 的 GUI 包装器设计",
     "desc": "FastCopy——XCopy 的 GUI 包装器设计\n\n## 概述\nWindows 内置的 GUI 包装器 robocopy和xcopy.",
     "time": 1726836682309,
