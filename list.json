@@ -22,5 +22,11 @@
     "desc": "## 概述\n\nInkBall（中文称作墨球） 是 Windows Vista 最佳非常流行的游戏之一，它被一些人视作三维弹球游戏的继任者。它",
     "time": 1726836682309,
     "path": "blog/重新设计墨球.md"
+  },
+  {
+    "name": "重新设计邮件",
+    "desc": "## 重新设计邮件\n\n## 背景\nWindows 11 对 Windows 设计进行了更新，根据全新的 Fluent Design Syst",
+    "time": 1726981551240,
+    "path": "blog/重新设计邮件.md"
   }
 ]
