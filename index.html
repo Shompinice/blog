@@ -262,7 +262,11 @@
         document.addEventListener('click', function (event) {
             var id = event.target.id
             console.log('Clicked element  ', event.target.id, event.target.classList);
-            if (/home-icon|content-icon|info-icon/.test(id)) switchPage(id)
+            if (/home-icon|content-icon|info-icon/.test(id)){
+                switchPage(id)
+                history.pushState('', '', window.location.origin + '/#/'); // 不刷新页面
+                // 移除顶部hash 信息
+            }
             // 手机端的逻辑
             if (/m-tool-icon/.test(id)) {
                 var ele = document.getElementById(id).classList
@@ -277,9 +281,7 @@
                 document.querySelector(".mobile-menu").style.display = 'none'
                 switchPage(id)
                 document.querySelector("#m-tool-icon").click()
-                
                 if ('line2' == id) {
-
                     list.style.display = 'block'
                     content.style.display = 'none'
                 }
