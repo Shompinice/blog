@@ -1,11 +1,5 @@
 [
   {
-    "name": "README",
-    "desc": "# Hardiol.github.io",
-    "time": 1726827541202,
-    "path": "README.md"
-  },
-  {
     "name": "重新设计 Crystal Disk Info",
     "desc": "Crystal Disk Info 是世界上最著名的磁盘健康监测工具之一。它是免费和开源的，并且仍在积极维护。它的仓库位于https://g",
     "time": 1726827541204,
@@ -40,5 +34,11 @@
     "desc": "## 背景\nChart 是一个对标 Micorsoft Visio 的软件，提供流程图、思维导图等图表绘制的软件。\n\n## 关键词\n我想很重",
     "time": 1726985308688,
     "path": "blog/为 Chart 设计图标.md"
+  },
+  {
+    "name": "为弹弹播放器设计图标",
+    "desc": "## 弹弹播放器现有的图标\n\n## 关键词\n\nSanlorng希望有弹幕的感觉，还要与现有的播放器图标有所联系。弹弹播放器使用 WinUI3",
+    "time": 1726985936852,
+    "path": "blog/为弹弹播放器设计图标.md"
   }
 ]
