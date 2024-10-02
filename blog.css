@@ -101,7 +101,7 @@ bodyx {
   overflow: auto;
   height: calc(100vh - 180px);
   flex: 1;
-  padding: 140px 0 40px 0;
+  padding: 140px 20% 40px 40px;
   padding-left: 200px;
   line-height: 30px;
 }
@@ -182,8 +182,8 @@ img {
   max-width: 500px;
 }
 
-#content::-webkit-scrollbar {
-  /* padding: 500px; */
+/* 滚动条样式 */
+/* #content::-webkit-scrollbar {
   left: 20px;
   width: 7px;
   height: 7px;
@@ -194,20 +194,19 @@ img {
   scrollbar-base-color: white;
   scrollbar-face-color: #aaaaaa;
   border-radius: 5px 5px;
-}
+} */
 
-/* 定义滚动条轨道 内阴影+圆角 */
+/* 定义滚动条轨道 内阴影+圆角
 #content::-webkit-scrollbar-track {
-  /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
   border-radius: 10px;
   background-color: white;
 }
 
 /*定义滑块 内阴影+圆角*/
-#content::-webkit-scrollbar-thumb {
+/* #content::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: #aaaaaa;
-}
+} */ 
 
 body::-webkit-scrollbar {
   display: none;
