@@ -1,7 +1,7 @@
 [
    {
     "name": "如何正确引导Unity导出的UWP工程的内容区域拓展到标题栏",
-    "desc": "是什么工程, CX/C++工程师其中修改在App.xaml.cpp添加头文件includeWindows.UI.ViewManagement.h",
+    "desc": "是什么工程",
     "time": 1726827541205,
     "path": "blog/如何正确引导Unity导出的UWP工程的内容区域拓展到标题栏.md"
   },
