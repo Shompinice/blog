@@ -6,25 +6,32 @@ CX/C++工程
 
 ## 添加头文件
 
-'#include <Windows.UI.ViewManagement.h>
+```C++
+#include <Windows.UI.ViewManagement.h>
 #include <Windows.ApplicationModel.Core.h>
-#include <Windows.UI.ViewManagement.h>'
+#include <Windows.UI.ViewManagement.h>
+```
 
 ## 在哪里添加代码
 
-'void App::InitializeUnity(String^ args)
+```C++
+void App::InitializeUnity(String^ args)
 {
-    ApplicationView::GetForCurrentView()->SuppressSystemOverlays = true;'
+    ApplicationView::GetForCurrentView()->SuppressSystemOverlays = true;
+```
 
 在这段文本的下方
 
-' // 扩展内容区域到标题栏
+```C++
+// 扩展内容区域到标题栏
  auto coreTitleBar = Windows::ApplicationModel::Core::CoreApplication::GetCurrentView()->TitleBar;
- coreTitleBar->ExtendViewIntoTitleBar = true;'
+ coreTitleBar->ExtendViewIntoTitleBar = true;
+```
 
  ## 最终全文
 
-' //
+```C++
+//
 // App.xaml.cpp
 // Implementation of the App class.
 //
@@ -159,4 +166,5 @@ void App::InitializeUnity(String^ args)
 void App::SetupOrientation()
 {
     Unity::SetupDisplay();
-}'
+}
+```
