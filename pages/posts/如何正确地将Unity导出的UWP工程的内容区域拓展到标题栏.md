@@ -1,3 +1,9 @@
+---
+title: 如何正确地将Unity导出的UWP工程的内容区域拓展到标题栏
+date: 2023-06-22
+updated: 2023-06-22
+---
+
 ## 是什么工程
 CX/C++工程
 
@@ -18,14 +24,11 @@ CX/C++工程
 void App::InitializeUnity(String^ args)
 {
     ApplicationView::GetForCurrentView()->SuppressSystemOverlays = true;
-```
+}
 
-在这段文本的下方
-
-```C++
 // 扩展内容区域到标题栏
- auto coreTitleBar = Windows::ApplicationModel::Core::CoreApplication::GetCurrentView()->TitleBar;
- coreTitleBar->ExtendViewIntoTitleBar = true;
+auto coreTitleBar = Windows::ApplicationModel::Core::CoreApplication::GetCurrentView()->TitleBar;
+coreTitleBar->ExtendViewIntoTitleBar = true;
 ```
 
  ## 最终全文

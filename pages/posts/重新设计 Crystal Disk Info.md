@@ -1,3 +1,9 @@
+---
+title: 重新设计 Crystal Disk Info
+date: 2023-06-22
+updated: 2023-06-22
+---
+
 Crystal Disk Info 是世界上最著名的磁盘健康监测工具之一。它是免费和开源的，并且仍在积极维护。它的仓库位于https://github.com/hiyohiyo/CrystalDiskInfo 该项目旨在为 DiskInfo 提供现代外观。
 
 ## 概述
