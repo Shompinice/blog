@@ -25,6 +25,8 @@ declare module 'vue-router/auto-routes' {
     '/posts/': RouteRecordInfo<'/posts/', '/posts', Record<never, never>, Record<never, never>>,
     '/posts/FastCopy——XCopy 的 GUI 包装器设计': RouteRecordInfo<'/posts/FastCopy——XCopy 的 GUI 包装器设计', '/posts/FastCopy——XCopy 的 GUI 包装器设计', Record<never, never>, Record<never, never>>,
     '/posts/为 Chart 设计图标': RouteRecordInfo<'/posts/为 Chart 设计图标', '/posts/为 Chart 设计图标', Record<never, never>, Record<never, never>>,
+    '/posts/为 NanaBox 设计图标': RouteRecordInfo<'/posts/为 NanaBox 设计图标', '/posts/为 NanaBox 设计图标', Record<never, never>, Record<never, never>>,
+    '/posts/为 NanaRun 设计图标': RouteRecordInfo<'/posts/为 NanaRun 设计图标', '/posts/为 NanaRun 设计图标', Record<never, never>, Record<never, never>>,
     '/posts/为 NanaZip 设计图标': RouteRecordInfo<'/posts/为 NanaZip 设计图标', '/posts/为 NanaZip 设计图标', Record<never, never>, Record<never, never>>,
     '/posts/为 RX 文件资源管理器设计图标': RouteRecordInfo<'/posts/为 RX 文件资源管理器设计图标', '/posts/为 RX 文件资源管理器设计图标', Record<never, never>, Record<never, never>>,
     '/posts/为弹弹播放器设计图标': RouteRecordInfo<'/posts/为弹弹播放器设计图标', '/posts/为弹弹播放器设计图标', Record<never, never>, Record<never, never>>,
